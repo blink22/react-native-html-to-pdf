@@ -68,6 +68,10 @@ class Example extends Component {
       html: '<h1>PDF TEST</h1>',
       fileName: 'test',
       directory: 'docs',
+      page: {
+        size: page.size.UsLetter,
+        orientation: page.orientation.Landscape,
+      },      
     };
 
     let file = await RNHTMLtoPDF.convert(options)
@@ -92,13 +96,12 @@ class Example extends Component {
 | `fileName` | `string` | Random  | Custom Filename excluding .pdf extension
 | `base64` | boolean | false  | return base64 string of pdf file (not recommended)
 
-
 #### iOS Only
 
 | Param | Type | Default | Note |
 |---|---|---|---|
-| `height` | number | 612  | Set document height (points)
-| `width` | number | 792  | Set document width (points)
+| `height` | number | 612  | Set document height points to US Letter, Landscape
+| `width` | number | 792  | Set document width points to US Letter, Landscape
 | `padding` | number | 10  | Outer padding (points)
 
 
@@ -107,3 +110,18 @@ class Example extends Component {
 | Param | Type | Default | Note |
 |---|---|---|---|
 | `fonts` | Array | | Allow custom fonts `['/fonts/TimesNewRoman.ttf', '/fonts/Verdana.ttf']`
+
+### Options: page
+
+| Param | Type | Default | Note |
+|---|---|---|---|
+| `orientation` | `string` | Portrait | Landscape, Portrait
+| `size` | `string` | UsLetter  | A0 - A8, UsGovernmentLetter, UsLetter, UsLegal
+
+## Images
+
+````<img src="https://www.pexels.com/photo/cat-animal-pet-9673/" />````
+
+### Android Assets
+
+````<img src="file:///android_asset/images/clientLogo.png" />````
